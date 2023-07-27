@@ -1,6 +1,6 @@
-package com.financial.resource;
+package com.financial.resources;
 
-import com.financial.entity.SubCategory;
+import com.financial.entities.SubCategory;
 import io.quarkus.hibernate.reactive.panache.Panache;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
