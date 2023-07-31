@@ -1,4 +1,4 @@
-create table if not exists staging.entry
+create table if not exists entry
 (
     date           date,
     type           smallint
@@ -7,14 +7,14 @@ create table if not exists staging.entry
     value          double precision,
     category_id    uuid not null
         constraint fk_category_id
-            references staging.category,
+            references category,
     id             uuid not null
         primary key,
     subcategory_id uuid not null
         constraint fk_subcategory_id
-            references staging.subcategory,
+            references subcategory,
     description    varchar(255)
 );
 
-alter table staging.entry
+alter table entry
     owner to financial;

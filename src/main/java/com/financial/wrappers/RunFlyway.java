@@ -11,6 +11,9 @@ import org.flywaydb.core.Flyway;
 @ApplicationScoped
 public class RunFlyway {
 
+    @ConfigProperty(name = "quarkus.hibernate-orm.database.default-schema")
+    String environment;
+
     @ConfigProperty(name = "flyway.migrate")
     boolean migrate;
 
@@ -28,7 +31,7 @@ public class RunFlyway {
             log.info("Running Flyway");
             Flyway.configure()
                   .dataSource(datasourceUrl.replace("vertx-reactive", "jdbc"), username, password)
-                  .schemas("staging")
+                  .schemas(environment)
                   .load()
                   .migrate();
         }

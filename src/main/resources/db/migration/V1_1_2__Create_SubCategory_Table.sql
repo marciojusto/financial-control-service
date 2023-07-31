@@ -1,12 +1,12 @@
-create table if not exists staging.subcategory
+create table if not exists subcategory
 (
     category_id uuid not null
         constraint fk_category_id
-            references staging.category,
+            references category,
     id          uuid not null
         primary key,
     name        varchar(255)
 );
 
-alter table staging.subcategory
+alter table subcategory
     owner to financial;

@@ -1,9 +1,9 @@
-create table if not exists staging.bank
+create table if not exists bank
 (
     id   uuid not null
     primary key,
     name varchar(255)
     );
 
-alter table staging.bank
+alter table bank
     owner to financial;
