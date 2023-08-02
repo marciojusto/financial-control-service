@@ -1,6 +1,6 @@
 create table if not exists entry
 (
-    date           date,
+    entry_date     date not null,
     type           smallint
         constraint entry_type_check
             check ((type >= 0) AND (type <= 1)),

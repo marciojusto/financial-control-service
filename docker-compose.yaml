@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - POSTGRES_USER=financial
+      - POSTGRES_PASSWORD=financial
+      - POSTGRES_DB=financial
+    ports:
+      - '5432:5432'
