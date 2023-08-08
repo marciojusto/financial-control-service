@@ -14,6 +14,7 @@ public class Bank extends PanacheEntityBase {
     @Id
     @GeneratedValue
     public UUID id;
+
     public String name;
 
     public static Uni<Bank> findByName(String name) {
