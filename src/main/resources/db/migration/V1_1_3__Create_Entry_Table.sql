@@ -5,6 +5,9 @@ create table if not exists entry
         constraint entry_type_check
             check ((type >= 0) AND (type <= 1)),
     value          double precision,
+    bank_id        uuid not null
+        constraint fk_bank_id
+            references bank,
     category_id    uuid not null
         constraint fk_category_id
             references category,
