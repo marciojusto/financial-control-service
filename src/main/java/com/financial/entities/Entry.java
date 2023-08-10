@@ -1,11 +1,13 @@
 package com.financial.entities;
 
+import com.financial.enums.TypeEnumConverter;
 import com.financial.enums.Type;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +16,7 @@ import java.sql.Date;
 import java.util.UUID;
 
 @Entity
+@IdClass(EntryCompositeKey.class)
 public class Entry {
 
     @Id
@@ -33,7 +36,7 @@ public class Entry {
     public Double value;
 
     @NotNull
-    @Enumerated
+    @Convert(converter = TypeEnumConverter.class)
     public Type type;
 
     @ManyToOne(optional = false)
