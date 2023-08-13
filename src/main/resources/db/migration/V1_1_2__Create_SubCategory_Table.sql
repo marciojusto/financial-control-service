@@ -1,4 +1,4 @@
-create table if not exists subcategory
+create table if not exists sub_category
 (
     category_id uuid not null
         constraint fk_category_id
@@ -8,5 +8,5 @@ create table if not exists subcategory
     name        varchar(255)
 );
 
-alter table subcategory
+alter table sub_category
     owner to financial;

@@ -15,7 +15,7 @@ create table if not exists entry
         primary key,
     subcategory_id uuid not null
         constraint fk_subcategory_id
-            references subcategory,
+            references sub_category,
     description    varchar(255)
 );
 

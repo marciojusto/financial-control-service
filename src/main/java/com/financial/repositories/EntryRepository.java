@@ -5,13 +5,14 @@ import io.quarkus.hibernate.reactive.panache.PanacheRepository;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 
+import java.sql.Date;
 import java.util.List;
 
 @ApplicationScoped
 public class EntryRepository implements PanacheRepository<Entry> {
 
-    public Uni<List<Entry>> findByPeriod(Entry entry) {
-        return find("entryDate >= ?1 and entryDate <= ?2", entry.entryDate, entry.dueDate).list();
+    public Uni<List<Entry>> findByPeriod(Date entryDate, Date dueDate) {
+        return find("entryDate >= ?1 and entryDate <= ?2", entryDate, dueDate).list();
     }
 
 }

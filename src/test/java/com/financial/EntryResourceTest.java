@@ -4,10 +4,8 @@ import com.financial.entities.Bank;
 import com.financial.entities.Category;
 import com.financial.entities.Entry;
 import com.financial.entities.SubCategory;
-import com.financial.enums.Type;
+import com.financial.enums.TypeEnum;
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -17,7 +15,6 @@ import java.sql.Date;
 import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
@@ -76,7 +73,7 @@ public class EntryResourceTest {
         entry.description = "DD PT67100866 SANT CONSUMER P 00124141835";
         entry.entryDate = Date.valueOf("2023-05-05");
         entry.value = 198.68;
-        entry.type = Type.DEBIT;
+        entry.type = TypeEnum.DEBIT;
         entry.bank = bank;
         entry.category = category;
         entry.subCategory = subCategory;

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Type {
+public enum TypeEnum {
     CREDIT("Credit"), DEBIT("Debit");
 
     private final String description;

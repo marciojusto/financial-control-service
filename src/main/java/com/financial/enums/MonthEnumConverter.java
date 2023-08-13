@@ -3,11 +3,13 @@ package com.financial.enums;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
+import java.time.Month;
+
 @Converter(autoApply = true)
-public class TypeEnumConverter implements AttributeConverter<TypeEnum, String> {
+public class MonthEnumConverter implements AttributeConverter<MonthEnum, Month> {
 
     @Override
-    public String convertToDatabaseColumn(TypeEnum attribute) {
+    public Month convertToDatabaseColumn(MonthEnum attribute) {
         if (attribute == null) {
             return null;
         }
@@ -15,11 +17,11 @@ public class TypeEnumConverter implements AttributeConverter<TypeEnum, String> {
     }
 
     @Override
-    public TypeEnum convertToEntityAttribute(String dbData) {
+    public MonthEnum convertToEntityAttribute(Month dbData) {
         if (dbData == null) {
             return null;
         }
-        for (TypeEnum value : TypeEnum.values()) {
+        for (MonthEnum value : MonthEnum.values()) {
             if (value.getDescription().equals(dbData)) {
                 return value;
             }

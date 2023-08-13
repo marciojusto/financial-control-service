@@ -1,7 +1,7 @@
 package com.financial.entities;
 
+import com.financial.enums.TypeEnum;
 import com.financial.enums.TypeEnumConverter;
-import com.financial.enums.Type;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -37,7 +37,7 @@ public class Entry {
 
     @NotNull
     @Convert(converter = TypeEnumConverter.class)
-    public Type type;
+    public TypeEnum type;
 
     @ManyToOne(optional = false)
     public Bank bank;
